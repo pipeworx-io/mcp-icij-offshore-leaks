@@ -1,0 +1,57 @@
+[
+  {
+    "name": "offshore_search",
+    "description": "Search the ICIJ Offshore Leaks Database by name for offshore entities, officers (directors/shareholders/beneficiaries) and intermediaries (registered agents, law firms, banks) named across five ICIJ investigations: Offshore Leaks, Panama Papers, Bahamas Leaks, Paradise Papers and Pandora Papers. Answers \"is [name] in the Panama Papers\", \"offshore companies registered in [jurisdiction]\", \"who is [person] linked to offshore\". Matches on name (prefix-aware, e.g. \"Mossack\" matches \"Mossack Fonseca\"). Returns each match's node_id, type, jurisdiction, status and which leak it came from -- call offshore_entity with a node_id for full details and linked officers/intermediaries. Every response carries ICIJ's own licence attribution and its caveat that inclusion is not evidence of wrongdoing.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name (or part of a name) to search for, e.g. \"Mossack Fonseca\", \"Wintris\"."
+        },
+        "jurisdiction": {
+          "type": "string",
+          "description": "Filter by jurisdiction name as ICIJ records it, e.g. \"British Virgin Islands\", \"Panama\". Exact match, case-insensitive."
+        },
+        "node_type": {
+          "type": "string",
+          "enum": [
+            "entity",
+            "officer",
+            "intermediary",
+            "address",
+            "other"
+          ],
+          "description": "Restrict to one kind of node: \"entity\" (offshore company/trust/foundation), \"officer\" (director/shareholder/beneficiary), \"intermediary\" (registered agent/law firm/bank), \"address\", or \"other\"."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Max results to return (default 50, max 200)."
+        }
+      },
+      "required": [
+        "name"
+      ]
+    }
+  },
+  {
+    "name": "offshore_entity",
+    "description": "Fetch one node from the ICIJ Offshore Leaks Database by its node_id -- full details (name, jurisdiction, status, incorporation/struck-off dates, registered agent) plus every linked officer, intermediary, entity or address, with the relationship role (\"shareholder of\", \"registered address\", \"intermediary of\") and which ICIJ leak each link comes from. Use after offshore_search returns a node_id. Works for any node type (entity, officer, intermediary, address, other) -- officers and intermediaries show the entities they are linked to, and entities show their officers/intermediaries/addresses.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "node_id": {
+          "type": "string",
+          "description": "The node_id returned by offshore_search, e.g. \"10206223\"."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Max linked relationships to return (default 50, max 200)."
+        }
+      },
+      "required": [
+        "node_id"
+      ]
+    }
+  }
+]

@@ -1,12 +1,20 @@
 {
   "name": "@pipeworx/mcp-icij-offshore-leaks",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "ICIJ Offshore Leaks Database -- offshore entities, officers, intermediaries and the relationships between them, across five ICIJ investigations (Offshore Leaks, Panama Papers, Bahamas Leaks, Paradise Papers, Pandora Papers).",
   "type": "module",
-  "main": "src/index.ts",
-  "types": "src/index.ts",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./tools.json": "./tools.json",
+    "./package.json": "./package.json"
+  },
   "bin": {
     "mcp-icij-offshore-leaks": "bin/cli.js"
+  },
+  "files": ["bin/", "lib/", "tools.json", "server.json"],
+  "engines": {
+    "node": ">=18"
   },
   "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "icij-offshore-leaks"],
   "license": "MIT",
@@ -14,19 +22,12 @@
     "type": "git",
     "url": "git+https://github.com/pipeworx-io/mcp-icij-offshore-leaks.git"
   },
-  "scripts": {
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.30.0",
-    "tsx": "^4.19.0"
-  },
-  "devDependencies": {
-    "typescript": "^5.9.3",
-    "@cloudflare/workers-types": "^4.20260405.1"
-  },
+  "mcpName": "io.github.pipeworx-io/icij-offshore-leaks",
   "pipeworx": {
-    "sourceHash": "v1-9e71a9b881fb67b7085d2226d041886d5af40ae65ddb3c1f17aff6d5166964f4",
-    "sourceCommit": "8dbe088fb6f9d2c88f934173742329b4e20a67d6"
+    "mode": "gateway",
+    "slug": "icij-offshore-leaks",
+    "gatewaySlug": "icij-offshore-leaks",
+    "sourceHash": "v1-0b12b40676c63b889e53b0cc91b4d18df94d624ceb0e1fcb982e09c85fb8b467",
+    "sourceCommit": "4844029e402d6bd2fe735add8abf6d46735f8ed5"
   }
 }
