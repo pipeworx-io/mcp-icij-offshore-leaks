@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-icij-offshore-leaks",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "ICIJ Offshore Leaks Database -- offshore entities, officers, intermediaries and the relationships between them, across five ICIJ investigations (Offshore Leaks, Panama Papers, Bahamas Leaks, Paradise Papers, Pandora Papers).",
   "type": "module",
   "main": "lib/index.js",
@@ -27,7 +27,7 @@
     "mode": "gateway",
     "slug": "icij-offshore-leaks",
     "gatewaySlug": "icij-offshore-leaks",
-    "sourceHash": "v1-0b12b40676c63b889e53b0cc91b4d18df94d624ceb0e1fcb982e09c85fb8b467",
-    "sourceCommit": "4844029e402d6bd2fe735add8abf6d46735f8ed5"
+    "sourceHash": "v1-d6c9eac190c299624de1b1a5ca8ef43a51dc8ed1d27b67d351279676c8f6a2b2",
+    "sourceCommit": "0ca9712c0ac03bb0121cc7e81b202d0c45ac02ca"
   }
 }

@@ -3,7 +3,7 @@
   "name": "io.github.pipeworx-io/icij-offshore-leaks",
   "title": "Icij Offshore Leaks",
   "description": "ICIJ Offshore Leaks Database -- offshore entities, officers, intermediaries and the relationships…",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "websiteUrl": "https://pipeworx.io/packs/icij-offshore-leaks",
   "repository": {
     "url": "https://github.com/pipeworx-io/mcp-icij-offshore-leaks",
